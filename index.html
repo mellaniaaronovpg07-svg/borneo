@@ -1,0 +1,2892 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program &amp; Inovasi — Green Earth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232d6a4f'%3E%3Cpath d='M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z'/%3E%3C/svg%3E">
+
+    <style>
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #777777;
+            --accent: #2d6a4f;
+            --accent-light: rgba(45, 106, 79, 0.12);
+            --accent-glow: rgba(45, 106, 79, 0.28);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.45);
+            --glass-bg-strong: rgba(255, 255, 255, 0.88);
+            --card-shadow: 0 12px 36px rgba(0, 0, 0, 0.07);
+            --card-shadow-hover: 0 20px 50px rgba(45, 106, 79, 0.16);
+            --nav-bg: rgba(255, 255, 255, 0.75);
+            --footer-bg: #141716;
+            --footer-text: #b0b5b3;
+            --divider: rgba(0, 0, 0, 0.06);
+            --counter-bg: rgba(45, 106, 79, 0.08);
+            --carousel-dot: rgba(0, 0, 0, 0.18);
+            --carousel-dot-active: #2d6a4f;
+            --timeline-line: rgba(45, 106, 79, 0.2);
+            --accordion-hover: rgba(45, 106, 79, 0.05);
+            --badge-bg: rgba(45, 106, 79, 0.1);
+            --badge-text: #2d6a4f;
+            --progress-bar-bg: rgba(0,0,0,0.08);
+            --modal-overlay: rgba(10, 20, 15, 0.55);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0c0b;
+            --bg-secondary: #121514;
+            --text-primary: #f0f3f1;
+            --text-secondary: #a8b0ac;
+            --text-muted: #6e7672;
+            --accent: #52b788;
+            --accent-light: rgba(82, 183, 136, 0.14);
+            --accent-glow: rgba(82, 183, 136, 0.32);
+            --glass-bg: rgba(22, 28, 25, 0.62);
+            --glass-border: rgba(255, 255, 255, 0.09);
+            --glass-bg-strong: rgba(20, 26, 23, 0.9);
+            --card-shadow: 0 12px 36px rgba(0, 0, 0, 0.38);
+            --card-shadow-hover: 0 20px 50px rgba(82, 183, 136, 0.22);
+            --nav-bg: rgba(12, 16, 14, 0.78);
+            --footer-bg: #060807;
+            --footer-text: #8d9491;
+            --divider: rgba(255, 255, 255, 0.06);
+            --counter-bg: rgba(82, 183, 136, 0.09);
+            --carousel-dot: rgba(255, 255, 255, 0.2);
+            --carousel-dot-active: #52b788;
+            --timeline-line: rgba(82, 183, 136, 0.22);
+            --accordion-hover: rgba(82, 183, 136, 0.07);
+            --badge-bg: rgba(82, 183, 136, 0.12);
+            --badge-text: #52b788;
+            --progress-bar-bg: rgba(255,255,255,0.08);
+            --modal-overlay: rgba(0, 0, 0, 0.75);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1002;
+            pointer-events: none;
+        }
+        .scroll-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), #74c69d);
+            box-shadow: 0 0 10px var(--accent-glow);
+            transition: width 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            opacity: 0.85;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0 clamp(1.2rem, 4vw, 3rem);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: background 0.4s ease, box-shadow 0.4s ease, height 0.3s ease;
+        }
+        .navbar.scrolled {
+            background: var(--glass-bg-strong);
+            height: 64px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.08);
+        }
+        .nav-brand {
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: transform 0.3s ease;
+        }
+        .nav-brand:hover {
+            transform: scale(1.03);
+        }
+        .nav-brand i {
+            font-size: 1.25rem;
+            filter: drop-shadow(0 2px 6px var(--accent-glow));
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0%;
+            height: 2.5px;
+            background: var(--accent);
+            border-radius: 4px;
+            transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .theme-toggle {
+            position: relative;
+            width: 58px;
+            height: 30px;
+            background: var(--accent-light);
+            border-radius: 999px;
+            border: 1.5px solid var(--glass-border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0 4px;
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+        .theme-toggle .toggle-knob {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            transition: transform 0.45s cubic-bezier(0.68, -0.15, 0.27, 1.15), background 0.4s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        [data-theme="dark"] .theme-toggle .toggle-knob {
+            transform: translateX(26px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2.5px;
+            border-radius: 3px;
+            background: var(--text-primary);
+            transition: transform 0.35s ease, opacity 0.25s ease;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100dvh;
+            background: var(--glass-bg-strong);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            z-index: 1050;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-menu a {
+            text-decoration: none;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu { display: flex; }
+        }
+
+        
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-dropdown:hover .nav-dropdown-trigger,
+        .nav-dropdown.active .nav-dropdown-trigger {
+            color: var(--accent);
+        }
+        .nav-dropdown-arrow {
+            font-size: 0.72rem;
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav-dropdown:hover .nav-dropdown-arrow,
+        .nav-dropdown.open .nav-dropdown-arrow {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(14px) scale(0.96);
+            min-width: 320px;
+            background: var(--glass-bg-strong);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid var(--glass-border);
+            border-radius: 22px;
+            padding: 12px;
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+            z-index: 1010;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu,
+        .nav-dropdown.open .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(8px) scale(1);
+        }
+        .nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.25s ease;
+        }
+        .nav-dropdown-item:hover {
+            background: var(--accent-light);
+            transform: translateX(4px);
+        }
+        .dropdown-item-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: var(--counter-bg);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+        .nav-dropdown-item:hover .dropdown-item-icon {
+            background: var(--accent);
+            color: #ffffff;
+        }
+        .dropdown-item-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .dropdown-item-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+        .dropdown-item-desc {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.25;
+        }
+
+        /* Mobile Dropdown styles */
+        .mobile-dropdown-wrap {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mobile-dropdown-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            padding: 6px 0;
+            transition: color 0.3s ease;
+        }
+        .mobile-dropdown-header:hover {
+            color: var(--accent);
+        }
+        .mobile-dropdown-arrow {
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+        .mobile-dropdown-wrap.open .mobile-dropdown-arrow {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+        .mobile-dropdown-sub {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 280px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 14px;
+            margin-top: 10px;
+        }
+        .mobile-dropdown-wrap.open .mobile-dropdown-sub {
+            display: flex;
+        }
+        .mobile-dropdown-sub a {
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            color: var(--text-secondary) !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .mobile-dropdown-sub a:hover {
+            background: var(--accent-light);
+            color: var(--accent) !important;
+        }
+        .nav-dropdown-menu::before {
+         content: "";
+        position: absolute;
+        top: -16px;
+         left: 0;
+        right: 0;
+         height: 16px;
+        }
+        
+        .hero-earth {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--bg-primary);
+            transition: background 0.5s ease;
+        }
+        .hero-earth-canvas-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            cursor: grab;
+        }
+        .hero-earth-canvas-wrap:active {
+            cursor: grabbing;
+        }
+        #earthCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-earth-overlay {
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
+            text-align: left;
+            max-width: 1280px;
+            width: 100%;
+            padding: 0 clamp(1.5rem, 5vw, 4rem);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            min-height: 100vh;
+        }
+        .hero-text-side {
+            flex: 1;
+            max-width: 540px;
+            pointer-events: auto;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.4rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .hero-badge.visible { opacity: 1; transform: none; }
+        .hero-badge i { font-size: 0.95rem; }
+        .hero-title {
+            font-size: clamp(2.3rem, 5.5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.12;
+            color: var(--text-primary);
+            margin-bottom: 1.2rem;
+            letter-spacing: -1.5px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s 0.15s ease, transform 0.7s 0.15s ease;
+        }
+        .hero-title .accent {
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title.visible { opacity: 1; transform: none; }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 460px;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s 0.3s ease, transform 0.7s 0.3s ease;
+        }
+        .hero-subtitle.visible { opacity: 1; transform: none; }
+        .hero-quick-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .btn-hero-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 26px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--accent), #40916c);
+            color: #ffffff;
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+        .btn-hero-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px var(--accent-glow);
+            color: #ffffff;
+        }
+        .btn-hero-secondary {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+        .btn-hero-secondary:hover {
+            background: var(--glass-bg-strong);
+            transform: translateY(-3px);
+            color: var(--accent);
+        }
+        .hero-globe-spacer {
+            flex: 1;
+            min-width: 40%;
+        }
+
+        @media (max-width: 900px) {
+            .hero-earth-overlay {
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-bottom: 5rem;
+                text-align: center;
+            }
+            .hero-text-side { max-width: 100%; }
+            .hero-subtitle { max-width: 100%; margin: 0 auto 1.8rem; }
+            .hero-quick-actions { justify-content: center; }
+            .hero-globe-spacer { display: none; }
+        }
+
+        /* =========== BIDIRECTIONAL SCROLL REVEAL ANIMATIONS =========== */
+        /* Smooth animations that trigger when scrolling DOWN and UP */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(45px) scale(0.97);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-item.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        /* When scrolling UP into view, animate with a subtle downward glide */
+        .reveal-item.scroll-up-enter {
+            animation: scrollUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes scrollUpEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Lateral reveals */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* =========== GLASSY CAROUSEL SECTION =========== */
+        .carousel-section {
+            position: relative;
+            padding: 6rem clamp(1rem, 4vw, 3rem) 7rem;
+            background: var(--bg-primary);
+            transition: background 0.5s ease;
+            overflow: hidden;
+        }
+        .carousel-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.45;
+            filter: blur(40px);
+        }
+        .carousel-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.35;
+            filter: blur(45px);
+        }
+        .carousel-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 3.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .carousel-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1rem;
+        }
+        .carousel-section-title {
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+        .carousel-section-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .carousel-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+            background: var(--glass-bg);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.4s ease;
+        }
+        .carousel-container:hover {
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .carousel-top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 2.2rem 0.8rem;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .carousel-counter-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .carousel-counter-display span.current {
+            color: var(--accent);
+            font-size: 1.15rem;
+        }
+        .carousel-hint {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+        }
+        .carousel-hint i {
+            color: var(--accent);
+            animation: swipeHand 1.8s ease-in-out infinite;
+        }
+        @keyframes swipeHand {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-6px); }
+        }
+
+        .carousel-track-wrap {
+            overflow: hidden;
+            width: 100%;
+            cursor: grab;
+            user-select: none;
+            touch-action: pan-y;
+            position: relative;
+        }
+        .carousel-track-wrap.is-dragging {
+            cursor: grabbing;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: clamp(1.8rem, 3.5vw, 3rem);
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: clamp(1.8rem, 3.5vw, 3rem);
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .slide-photo-wrap {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 16 / 11;
+            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.15);
+            background: var(--counter-bg);
+            border: 1px solid var(--glass-border);
+        }
+        .slide-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .carousel-slide:hover .slide-photo {
+            transform: scale(1.06);
+        }
+        .slide-photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.2rem;
+            pointer-events: none;
+        }
+        .slide-photo-badge {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .slide-photo-badge i {
+            color: #52b788;
+        }
+        .slide-photo-meta {
+            color: #ffffff;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .slide-photo-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+        }
+
+        /* Right: Content */
+        .slide-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+        .slide-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .slide-header-badge i {
+            font-size: 1rem;
+        }
+        .slide-title {
+            font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+        }
+        .slide-content {
+            font-size: 0.96rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        /* Stats Pill Grid */
+        .slide-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-top: 0.3rem;
+        }
+        .slide-stat {
+            background: var(--counter-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 10px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .slide-stat i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        .slide-stat strong {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .slide-stat span {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+        .slide-stat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .slide-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 0.2rem;
+        }
+        .slide-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            background: var(--glass-bg-strong);
+            color: var(--text-secondary);
+            border: 1px solid var(--glass-border);
+        }
+        .slide-tag i {
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+
+        .slide-footer-actions {
+            margin-top: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .btn-slide-detail {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 16px var(--accent-glow);
+        }
+        .btn-slide-detail:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
+            background: #40916c;
+        }
+        .btn-slide-detail i {
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+        .btn-slide-detail:hover i {
+            transform: translateX(3px);
+        }
+
+        .carousel-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 2.2rem;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .carousel-arrow-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .carousel-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--glass-border);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .carousel-arrow:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 6px 18px var(--accent-glow);
+        }
+        .carousel-arrow:active {
+            transform: scale(0.95);
+        }
+        .carousel-dots {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: var(--carousel-dot);
+            border: none;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .carousel-dot:hover {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+        .carousel-dot.active {
+            width: 36px;
+            background: var(--carousel-dot-active);
+            box-shadow: 0 2px 8px var(--accent-glow);
+        }
+
+        .carousel-progress-line {
+            width: 100%;
+            height: 3px;
+            background: var(--progress-bar-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-progress-fill {
+            height: 100%;
+            width: 25%;
+            background: linear-gradient(90deg, var(--accent), #74c69d);
+            transition: width 0.4s ease;
+        }
+
+        @media (max-width: 960px) {
+            .carousel-slide {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+                padding: 1.8rem;
+            }
+            .slide-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 580px) {
+            .slide-stats {
+                grid-template-columns: 1fr;
+            }
+            .carousel-nav {
+                padding: 1rem 1.4rem;
+            }
+            .carousel-top-bar {
+                padding: 1rem 1.4rem 0.6rem;
+            }
+        }
+
+        .dampak-section {
+            padding: 6rem clamp(1rem, 4vw, 3rem) 5rem;
+            background: var(--bg-secondary);
+            transition: background 0.5s ease;
+            position: relative;
+        }
+        .dampak-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 4rem;
+        }
+        .dampak-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1rem;
+        }
+        .dampak-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -1px;
+            margin-bottom: 0.8rem;
+        }
+        .dampak-header p {
+            font-size: 1.08rem;
+            color: var(--text-secondary);
+        }
+
+        .dampak-columns {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 3.5rem);
+        }
+        .dampak-col-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.5px;
+        }
+        .dampak-col-title i {
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .timeline-wrap {
+            position: relative;
+            padding-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .timeline-wrap::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            bottom: 20px;
+            left: 9px;
+            width: 2px;
+            background: var(--timeline-line);
+        }
+        .timeline-item {
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 3.5px solid var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
+            z-index: 2;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .timeline-item:hover::before {
+            transform: scale(1.25);
+            background: var(--accent);
+        }
+        .accordion-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+        .accordion-card:hover {
+            transform: translateX(4px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+        }
+        .accordion-header {
+            padding: 1.2rem 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.02rem;
+            color: var(--text-primary);
+            gap: 12px;
+            user-select: none;
+        }
+        .accordion-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .accordion-header-left i {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+        .accordion-chevron {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease;
+        }
+        .accordion-card.open .accordion-chevron {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .accordion-body-inner {
+            padding: 0 1.4rem 1.4rem;
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            border-top: 1px solid var(--divider);
+            padding-top: 1rem;
+        }
+        .accordion-body-inner strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .combined-card {
+            max-width: 1140px;
+            margin: 4rem auto 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.2rem 2.8rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .combined-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #74c69d, var(--accent));
+        }
+        .combined-card p {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .combined-card i {
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .stat-counters {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+            transition: all 0.35s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px var(--accent-glow);
+            border-color: var(--accent);
+        }
+        .stat-card-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        .stat-number {
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1.1;
+            margin-bottom: 0.4rem;
+            letter-spacing: -1px;
+        }
+        .stat-label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 900px) {
+            .dampak-columns { grid-template-columns: 1fr; }
+            .stat-counters { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .stat-counters { grid-template-columns: 1fr; }
+            .combined-card { padding: 1.8rem 1.4rem; }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--modal-overlay);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-card {
+            background: var(--glass-bg-strong);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2.4rem;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .modal-overlay.active .modal-card {
+            transform: scale(1) translateY(0);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--counter-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .modal-close-btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: rotate(90deg);
+        }
+        .modal-header-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+        .modal-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin-bottom: 1.5rem;
+        }
+        .modal-desc {
+            font-size: 0.96rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .modal-spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .modal-spec-item {
+            background: var(--counter-bg);
+            border: 1px solid var(--glass-border);
+            padding: 12px 16px;
+            border-radius: 14px;
+        }
+        .modal-spec-label {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .modal-spec-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--glass-bg-strong);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1.5px solid var(--glass-border);
+            color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.85);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+        .scroll-top-btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 12px 30px var(--accent-glow);
+        }
+
+        /* =========== FOOTER =========== */
+        .footer-wave {
+            position: relative;
+            height: 80px;
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
+        .footer-wave svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+        }
+        .footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 4.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr;
+            gap: 3.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        .footer-brand i {
+            color: var(--accent);
+        }
+        .footer-desc {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: var(--footer-text);
+            max-width: 440px;
+        }
+        .footer h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .footer-links a {
+            color: var(--footer-text);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .social-icon:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--footer-text);
+        }
+
+        @media (max-width: 860px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Kembali ke atas">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Green Earth</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a></li>
+            <li class="nav-dropdown active">
+                <a href="program.html" class="nav-dropdown-trigger active">
+                    <i class="fa-solid fa-cubes"></i>
+                    <span>Program</span>
+                    <i class="fa-solid fa-chevron-down nav-dropdown-arrow"></i>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <a href="program.html" class="nav-dropdown-item">
+                        <div class="dropdown-item-icon"><i class="fa-solid fa-earth-asia"></i></div>
+                        <div class="dropdown-item-info">
+                            <span class="dropdown-item-title">3D Globe &amp; Ringkasan</span>
+                            <span class="dropdown-item-desc">Eksplorasi bumi 3D interaktif Kalimantan</span>
+                        </div>
+                    </a>
+                    <a href="program.html#carouselSection" class="nav-dropdown-item">
+                        <div class="dropdown-item-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <div class="dropdown-item-info">
+                            <span class="dropdown-item-title">Reboisasi Hutan Endemik</span>
+                            <span class="dropdown-item-desc">Pemulihan habitat satwa endemik Borneo</span>
+                        </div>
+                    </a>
+                    <a href="program.html#carouselSection" class="nav-dropdown-item">
+                        <div class="dropdown-item-icon"><i class="fa-solid fa-camera"></i></div>
+                        <div class="dropdown-item-info">
+                            <span class="dropdown-item-title">Camera Trap Monitoring</span>
+                            <span class="dropdown-item-desc">Sensor gerak inframerah 24/7 non-invasif</span>
+                        </div>
+                    </a>
+                    <a href="program.html#carouselSection" class="nav-dropdown-item">
+                        <div class="dropdown-item-icon"><i class="fa-solid fa-water"></i></div>
+                        <div class="dropdown-item-info">
+                            <span class="dropdown-item-title">Restorasi Lahan Gambut</span>
+                            <span class="dropdown-item-desc">Canal blocking &amp; rewetting anti karhutla</span>
+                        </div>
+                    </a>
+                    <a href="program.html#dampakSection" class="nav-dropdown-item">
+                        <div class="dropdown-item-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="dropdown-item-info">
+                            <span class="dropdown-item-title">Dampak Lingkungan</span>
+                            <span class="dropdown-item-desc">Metrik kenaikan keanekaragaman hayati</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li><a href="index.html#donasi"><i class="fa-solid fa-hand-holding-heart"></i> Donasi</a></li>
+            <li><a href="index.html#kontak"><i class="fa-solid fa-envelope"></i> Kontak</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" aria-label="Ganti mode gelap atau terang">
+                <div class="toggle-knob" id="toggleKnob">
+                    <i class="fa-solid fa-sun" id="toggleIcon"></i>
+                </div>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Buka navigasi">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+        <div class="mobile-dropdown-wrap" id="mobileDropdownWrap">
+            <div class="mobile-dropdown-header" id="mobileDropdownToggle">
+                <span><i class="fa-solid fa-cubes"></i> Program</span>
+                <i class="fa-solid fa-chevron-down mobile-dropdown-arrow"></i>
+            </div>
+            <div class="mobile-dropdown-sub">
+                <a href="program.html"><i class="fa-solid fa-earth-asia"></i> 3D Globe &amp; Ringkasan</a>
+                <a href="program.html#carouselSection"><i class="fa-solid fa-seedling"></i> Reboisasi Hutan</a>
+                <a href="program.html#carouselSection"><i class="fa-solid fa-camera"></i> Camera Trap</a>
+                <a href="program.html#carouselSection"><i class="fa-solid fa-water"></i> Restorasi Gambut</a>
+                <a href="program.html#dampakSection"><i class="fa-solid fa-chart-line"></i> Dampak Lingkungan</a>
+            </div>
+        </div>
+        <a href="index.html#donasi"><i class="fa-solid fa-hand-holding-heart"></i> Donasi</a>
+        <a href="index.html#kontak"><i class="fa-solid fa-envelope"></i> Kontak</a>
+    </div>
+
+    <section class="hero-earth" id="heroEarth">
+        <div class="hero-earth-canvas-wrap" id="earthCanvasWrap" title="Klik dan geser untuk memutar globe 3D">
+            <canvas id="earthCanvas"></canvas>
+        </div>
+        <div class="hero-earth-overlay">
+            <div class="hero-text-side">
+                <h1 class="hero-title" id="heroTitle">
+                    Program &amp;<br><span class="accent">Inovasi</span> Konservasi
+                </h1>
+                <p class="hero-subtitle" id="heroSubtitle">
+                    Menjelajahi solusi mutakhir penyelamatan hutan Kalimantan — perpaduan restorasi ekosistem alami dan pengawasan berbasis teknologi modern.
+                </p>
+            </div>
+            <div class="hero-globe-spacer"></div>
+        </div>
+    </section>
+
+    <section class="carousel-section" id="carouselSection">
+        <div class="carousel-header reveal-item">
+            <div class="carousel-tag">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Aksi Nyata &amp; Teknologi</span>
+            </div>
+            <h2 class="carousel-section-title">Program Unggulan Kami</h2>
+            <p class="carousel-section-sub">Geser atau usap kartu glassy untuk melihat rincian setiap program konservasi</p>
+        </div>
+
+        <div class="carousel-container reveal-item delay-1">
+            <div class="carousel-top-bar">
+                <div class="carousel-counter-display">
+                    <span class="current" id="slideCurrentNum">01</span>
+                    <span>/</span>
+                    <span id="slideTotalNum">03</span>
+                </div>
+                <div class="carousel-hint">
+                    <i class="fa-solid fa-hand-pointer"></i>
+                    <span>Bisa di-swipe / digeser</span>
+                </div>
+            </div>
+
+            <div class="carousel-progress-line">
+                <div class="carousel-progress-fill" id="carouselProgressFill"></div>
+            </div>
+
+            <div class="carousel-track-wrap" id="carouselWrap">
+                <div class="carousel-track" id="carouselTrack">
+
+                    <div class="carousel-slide" data-slide-id="reboisasi">
+                        <div class="slide-photo-wrap">
+                            <img class="slide-photo" src="https://lh3.googleusercontent.com/d/134gkA4Px1Scwnpye1AOUgPWCA6f9IcRA" alt="Program Reboisasi Kalimantan" loading="lazy">
+                            <div class="slide-photo-overlay">
+                                <span class="slide-photo-badge">
+                                    <i class="fa-solid fa-circle-check"></i> Program Aktif
+                                </span>
+                                <div class="slide-photo-meta">
+                                    <span><i class="fa-solid fa-location-dot"></i> Kalimantan Timur &amp; Tengah</span>
+                                    <span><i class="fa-solid fa-shield-halved"></i> Terproteksi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-info">
+                            <div class="slide-header-badge">
+                                <i class="fa-solid fa-seedling"></i>
+                                <span>Restorasi Ekosistem Tropis</span>
+                            </div>
+                            <h3 class="slide-title">Program Reboisasi Hutan Endemik</h3>
+                            <p class="slide-content">
+                                Pemulihan lahan kritis pasca kebakaran hutan dengan bibit pohon asli Borneo seperti Ulin (kayu besi), Meranti, dan Tengkawang. Bersinergi dengan komunitas adat Dayak dalam pembibitan lokal, pemetaan GPS, dan perawatan jangka panjang.
+                            </p>
+                            <div class="slide-stats">
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-tree"></i>
+                                    <strong>100,000+</strong>
+                                    <span>Bibit Ditanam</span>
+                                </div>
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                    <strong>500 Ha</strong>
+                                    <span>Area Tercakup</span>
+                                </div>
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-handshake-angle"></i>
+                                    <strong>50+</strong>
+                                    <span>Komunitas Adat</span>
+                                </div>
+                            </div>
+                            <div class="slide-tags">
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Bibit Endemik</span>
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Geotagging GPS</span>
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Pemberdayaan Dayak</span>
+                            </div>
+                            <div class="slide-footer-actions">
+                                <button class="btn-slide-detail" onclick="openProgramModal('reboisasi')">
+                                    <span>Pelajari Detail</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide" data-slide-id="cameratrap">
+                        <div class="slide-photo-wrap">
+                            <img class="slide-photo" src="https://lh3.googleusercontent.com/d/14KbSXgcUmqf3qTnPZWwghK8dnYYF_VDn" alt="Teknologi Camera Trap Kalimantan" loading="lazy">
+                            <div class="slide-photo-overlay">
+                                <span class="slide-photo-badge">
+                                    <i class="fa-solid fa-satellite-dish"></i> Sensor 24/7 Aktif
+                                </span>
+                                <div class="slide-photo-meta">
+                                    <span><i class="fa-solid fa-camera"></i> Infrared HD</span>
+                                    <span><i class="fa-solid fa-microchip"></i> clear Vision</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-info">
+                            <div class="slide-header-badge">
+                                <i class="fa-solid fa-camera-retro"></i>
+                                <span>Wildlife Surveillance</span>
+                            </div>
+                            <h3 class="slide-title">Teknologi Camera Trap</h3>
+                            <p class="slide-content">
+                                Jaringan kamera otomatis dengan sensor gerak infra-merah yang dipasang tersembunyi di lintasan satwa liar. Dilengkapi oleh GSM atau SIM Card yang mengirimkan foto dan video secara real times melalui push notification pada ponsel.
+                            </p>
+                            <div class="slide-stats">
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-video"></i>
+                                    <strong>200+ Unit</strong>
+                                    <span>Kamera Aktif</span>
+                                </div>
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-paw"></i>
+                                    <strong>45 Spesies</strong>
+                                    <span>Teridentifikasi</span>
+                                </div>
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-images"></i>
+                                    <strong>10,000+</strong>
+                                    <span>Foto / Bulan</span>
+                                </div>
+                            </div>
+                            <div class="slide-tags">
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Sensor Deteksi Otomatis</span>
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Night Vision</span>
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Anti-Perburuan</span>
+                            </div>
+                            <div class="slide-footer-actions">
+                                <button class="btn-slide-detail" onclick="openProgramModal('cameratrap')">
+                                    <span>Pelajari Detail</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide" data-slide-id="gambut">
+                        <div class="slide-photo-wrap">
+                            <img class="slide-photo" src="https://lh3.googleusercontent.com/d/1jSxJLaf-xhUCvzzrh112web_EJi-4Jqv" alt="Restorasi Gambut Kalimantan" loading="lazy">
+                            <div class="slide-photo-overlay">
+                                <span class="slide-photo-badge">
+                                    <i class="fa-solid fa-droplet"></i> Rewetting Peatland
+                                </span>
+                                <div class="slide-photo-meta">
+                                    <span><i class="fa-solid fa-shield"></i> Zona Basah</span>
+                                    <span><i class="fa-solid fa-cloud-arrow-down"></i> Karbon Terkunci</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-info">
+                            <div class="slide-header-badge">
+                                <i class="fa-solid fa-water"></i>
+                                <span>Restorasi Lahan Basah</span>
+                            </div>
+                            <h3 class="slide-title">Pemulihan Ekosistem Gambut</h3>
+                            <p class="slide-content">
+                                Pembasahan kembali (rewetting) kubah gambut yang mengering akibat kanalisasi masa lalu. Dengan membangun sekat kanal permanen dan menanam vegetasi rawa gambut ramah air, risiko hotspot kebakaran gambut yang sulit dipadamkan dapat dicegah tuntas.
+                            </p>
+                            <div class="slide-stats">
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-compass-drafting"></i>
+                                    <strong>2,000 Ha</strong>
+                                    <span>Gambut Direstorasi</span>
+                                </div>
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-bars-staggered"></i>
+                                    <strong>50 Kanal</strong>
+                                    <span>Disekat Rapat</span>
+                                </div>
+                                <div class="slide-stat">
+                                    <i class="fa-solid fa-fire-flame-curved"></i>
+                                    <strong>80%</strong>
+                                    <span>Penurunan Hotspot</span>
+                                </div>
+                            </div>
+                            <div class="slide-tags">
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Canal Blocking</span>
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Muka Air Terjaga</span>
+                                <span class="slide-tag"><i class="fa-solid fa-check"></i> Emisi Nol</span>
+                            </div>
+                            <div class="slide-footer-actions">
+                                <button class="btn-slide-detail" onclick="openProgramModal('gambut')">
+                                    <span>Pelajari Detail</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <div class="carousel-arrow-group">
+                    <button class="carousel-arrow" id="carouselPrev" aria-label="Slide sebelumnya">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow" id="carouselNext" aria-label="Slide berikutnya">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="carousel-dots" id="carouselDots">
+                    <button class="carousel-dot active" data-idx="0" aria-label="Slide 1: Reboisasi"></button>
+                    <button class="carousel-dot" data-idx="1" aria-label="Slide 2: Camera Trap"></button>
+                    <button class="carousel-dot" data-idx="2" aria-label="Slide 3: Restorasi Gambut"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dampak-section" id="dampakSection">
+        <div class="dampak-header reveal-item">
+            <div class="dampak-badge">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Hasil Berkelanjutan</span>
+            </div>
+            <h2>Dampak Terhadap Lingkungan</h2>
+            <p>Ketika Reboisasi Massal Bertemu Pengaplikasian Teknologi Camera Trap</p>
+        </div>
+
+        <div class="dampak-columns">
+            <!-- Left Column: Reboisasi -->
+            <div class="dampak-col reveal-left">
+                <h3 class="dampak-col-title">
+                    <i class="fa-solid fa-tree"></i>
+                    <span>Transformasi Melalui Reboisasi</span>
+                </h3>
+                <div class="timeline-wrap">
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-feather-pointed"></i>
+                                    <span>Pemulihan Habitat Satwa</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Area reboisasi membukukan peningkatan <strong>60% keanekaragaman hayati</strong> dalam rentang 5 tahun pemantauan. Satwa payung seperti Orangutan Borneo dan Burung Rangkong Gading kembali bersarang di tajuk-tajuk pohon muda yang dirawat.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                                    <span>Penyerapan Karbon Masif</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Setiap hektar hutan pulih sanggup menyerap <strong>10 ton CO₂ per tahun</strong>. Dengan 500 hektar yang telah sukses dihijaukan, program ini mengikat lebih dari 5.000 ton emisi karbon per tahun secara permanen.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <span>Konservasi Daerah Aliran Sungai</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Akar pohon hutan menstabilkan tebing sungai dan meningkatkan fungsi retensi air tanah. Kualitas air bersih untuk permukiman di hilir meningkat pesat dan erosi tanah berkurang hingga <strong>70%</strong> saat musim hujan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-coins"></i>
+                                    <span>Pemberdayaan Ekonomi Sirkular</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Pendapatan rumah tangga warga mitra naik <strong>40% melalui hasil hutan non-kayu</strong> (HHNK), seperti madu lebah kelulut dan bibit pohon bernilai ekonomi, tanpa harus menebang sebatang pohon pun.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Camera Trap -->
+            <div class="dampak-col reveal-right">
+                <h3 class="dampak-col-title">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <span>Teknologi Camera Trap dalam Aksi</span>
+                </h3>
+                <div class="timeline-wrap">
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-binoculars"></i>
+                                    <span>Deteksi Satwa Endemik Langka</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Rekaman foto malam hari berhasil mendokumentasikan individu <strong>Macan Dahan Sunda</strong> dan <strong>Kucing Merah Kalimantan</strong> yang sangat pemalu, membuktikan bahwa zona reboisasi telah berfungsi sebagai koridor jelajah aktif.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                    <span>Monitoring Ekosistem Real-Time</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Data rekaman 24/7 dianalisis algoritma deep learning untuk memetakan dinamika populasi satwa liar, frekuensi reproduksi, serta pola perpindahan musiman akibat variasi iklim tropis.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <span>Pemberantasan Perburuan Ilegal</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Kehadiran sensor cerdas dan patroli tanggap darurat berhasil menekan insiden perburuan ilegal hingga <strong>75%</strong> di area konservasi utama kami dalam tempo 3 tahun terakhir.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="accordion-card" data-accordion>
+                            <div class="accordion-header">
+                                <div class="accordion-header-left">
+                                    <i class="fa-solid fa-book-bookmark"></i>
+                                    <span>Kontribusi Riset Sains Global</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                            </div>
+                            <div class="accordion-body">
+                                <div class="accordion-body-inner">
+                                    Lebih dari <strong>200 publikasi ilmiah</strong> internasional telah memanfaatkan dataset camera trap kami guna memperkaya literatur biologi konservasi dan ekologi tropis dunia.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="combined-card reveal-item">
+            <p>
+                <i class="fa-solid fa-sparkles"></i>
+                <span>Sinergi terpadu reboisasi hutan dan pemantauan sensor camera trap menciptakan perlindungan ekosistem yang terukur, akuntabel, dan berkelanjutan untuk paru-paru bumi.</span>
+            </p>
+        </div>
+
+        <div class="stat-counters">
+            <div class="stat-card reveal-item delay-1" data-count="60" data-suffix="%">
+                <div class="stat-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="stat-number">0%</div>
+                <div class="stat-label">Kenaikan Biodiversitas</div>
+            </div>
+            <div class="stat-card reveal-item delay-2" data-count="10" data-suffix=" Ton">
+                <div class="stat-card-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+                <div class="stat-number">0 Ton</div>
+                <div class="stat-label">CO₂ Diserap / Ha / Thn</div>
+            </div>
+            <div class="stat-card reveal-item delay-3" data-count="75" data-suffix="%">
+                <div class="stat-card-icon"><i class="fa-solid fa-shield-cat"></i></div>
+                <div class="stat-number">0%</div>
+                <div class="stat-label">Penurunan Perburuan</div>
+            </div>
+            <div class="stat-card reveal-item delay-4" data-count="200" data-suffix="+">
+                <div class="stat-card-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                <div class="stat-number">0+</div>
+                <div class="stat-label">Publikasi Riset Ilmiah</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="programModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-header-tag" id="modalHeaderTag">
+                <i class="fa-solid fa-circle-info"></i>
+                <span id="modalCategory">Konservasi</span>
+            </div>
+            <h3 class="modal-title" id="modalTitle">Judul Program</h3>
+            <img class="modal-image" id="modalImage" src="" alt="Detail Program">
+            <p class="modal-desc" id="modalDesc">Deskripsi lengkap mengenai program konservasi.</p>
+            <div class="modal-spec-grid" id="modalSpecs">
+            </div>
+            <div style="text-align: right; margin-top: 1rem;">
+                <a href="index.html#donasi" class="btn-slide-detail" style="display:inline-flex;">
+                    <span>Dukung Program Ini</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="var(--footer-bg)"/>
+        </svg>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <i class="fa-solid fa-leaf"></i>
+                    <span>Green Earth</span>
+                </div>
+                <p class="footer-desc">
+                    Inisiatif pelestarian dan restorasi hutan tropis Kalimantan melalui sains modern, pemantauan berbasis SISTEM, serta kolaborasi erat bersama masyarakat adat setempat.
+                </p>
+            </div>
+            <div>
+                <h4>Tautan Halaman</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Beranda</a></li>
+                    <li><a href="program.html"><i class="fa-solid fa-angle-right"></i> Program &amp; Inovasi</a></li>
+                    <li><a href="index.html#donasi"><i class="fa-solid fa-angle-right"></i> Donasi Aksi Nyata</a></li>
+                    <li><a href="index.html#kontak"><i class="fa-solid fa-angle-right"></i> Hubungi Tim Kami</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Ikuti Perkembangan</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Green Earth Project. Bersama Menjaga Borneo untuk Generasi Mendatang.
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+    (function(){
+        'use strict';
+
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+        const STORAGE_KEY = 'greenearth-theme';
+
+        function updateToggleIcon(theme) {
+            if (toggleIcon) {
+                if (theme === 'dark') {
+                    toggleIcon.className = 'fa-solid fa-moon';
+                } else {
+                    toggleIcon.className = 'fa-solid fa-sun';
+                }
+            }
+        }
+
+        function applyTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            updateToggleIcon(theme);
+            localStorage.setItem(STORAGE_KEY, theme);
+        }
+
+        const savedTheme = localStorage.getItem(STORAGE_KEY);
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            const current = html.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        const scrollProgressBar = document.getElementById('scrollProgressBar');
+        const navbar = document.getElementById('navbar');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        let lastScrollY = window.scrollY;
+        let scrollDirection = 'down';
+
+        function handleScrollEvents() {
+            const currentY = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (currentY / docHeight) * 100 : 0;
+
+            if (scrollProgressBar) {
+                scrollProgressBar.style.width = progress + '%';
+            }
+
+            if (navbar) {
+                navbar.classList.toggle('scrolled', currentY > 40);
+            }
+
+            if (scrollTopBtn) {
+                scrollTopBtn.classList.toggle('visible', currentY > 350);
+            }
+
+            if (currentY < lastScrollY) {
+                scrollDirection = 'up';
+                html.setAttribute('data-scroll-dir', 'up');
+            } else {
+                scrollDirection = 'down';
+                html.setAttribute('data-scroll-dir', 'down');
+            }
+            lastScrollY = currentY;
+        }
+
+        window.addEventListener('scroll', handleScrollEvents, { passive: true });
+
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('open');
+                mobileMenu.classList.toggle('open');
+                document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+            });
+
+            
+        const mobileDropdownToggle = document.getElementById('mobileDropdownToggle');
+        const mobileDropdownWrap = document.getElementById('mobileDropdownWrap');
+        if (mobileDropdownToggle && mobileDropdownWrap) {
+            mobileDropdownToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileDropdownWrap.classList.toggle('open');
+            });
+        }
+
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('open');
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        setTimeout(function() {
+            const title = document.getElementById('heroTitle');
+            const sub = document.getElementById('heroSubtitle');
+            if (title) title.classList.add('visible');
+            if (sub) sub.classList.add('visible');
+        }, 200);
+
+        const animObserverOptions = {
+            threshold: 0.12,
+            rootMargin: '20px 0px -20px 0px'
+        };
+
+        const animObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                const el = entry.target;
+                if (entry.isIntersecting) {
+                    el.classList.add('visible');
+                    if (scrollDirection === 'up') {
+                        el.classList.add('scroll-up-enter');
+                    } else {
+                        el.classList.remove('scroll-up-enter');
+                    }
+                    if (el.classList.contains('stat-card') && !el.dataset.animated) {
+                        animateCounter(el);
+                    }
+                } else {
+                    if (entry.boundingClientRect.top > window.innerHeight + 100 || entry.boundingClientRect.bottom < -100) {
+                        el.classList.remove('visible');
+                        el.classList.remove('scroll-up-enter');
+                        if (el.classList.contains('stat-card')) {
+                            el.dataset.animated = '';
+                        }
+                    }
+                }
+            });
+        }, animObserverOptions);
+
+        document.querySelectorAll('.reveal-item, .reveal-left, .reveal-right, .stat-card').forEach(function(el) {
+            animObserver.observe(el);
+        });
+
+        function animateCounter(card) {
+            card.dataset.animated = 'true';
+            const target = parseInt(card.getAttribute('data-count'), 10);
+            const suffix = card.getAttribute('data-suffix') || '';
+            const numEl = card.querySelector('.stat-number');
+            if (!numEl) return;
+            const duration = 1600;
+            let startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(ease * target);
+                numEl.textContent = current + suffix;
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
+        document.querySelectorAll('[data-accordion]').forEach(function(card) {
+            card.addEventListener('click', function() {
+                const wasOpen = card.classList.contains('open');
+                const parentCol = card.closest('.timeline-wrap');
+                if (parentCol) {
+                    parentCol.querySelectorAll('.accordion-card.open').forEach(function(opened) {
+                        if (opened !== card) {
+                            opened.classList.remove('open');
+                            const b = opened.querySelector('.accordion-body');
+                            if (b) b.style.maxHeight = '0';
+                        }
+                    });
+                }
+                card.classList.toggle('open', !wasOpen);
+                const body = card.querySelector('.accordion-body');
+                if (body) {
+                    body.style.maxHeight = !wasOpen ? (body.scrollHeight + 20) + 'px' : '0';
+                }
+            });
+        });
+
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const wrap = document.getElementById('carouselWrap');
+        const currentNumEl = document.getElementById('slideCurrentNum');
+        const progressFill = document.getElementById('carouselProgressFill');
+
+        let autoPlayTimer = null;
+        const autoPlayInterval = 6500;
+
+        function updateProgressFill() {
+            if (progressFill) {
+                const percent = ((currentSlide + 1) / totalSlides) * 100;
+                progressFill.style.width = percent + '%';
+            }
+        }
+
+        function goToSlide(idx) {
+            if (idx < 0) idx = totalSlides - 1;
+            if (idx >= totalSlides) idx = 0;
+            currentSlide = idx;
+
+            if (track) {
+                track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+            }
+
+            dots.forEach(function(dot, i) {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+
+            if (currentNumEl) {
+                currentNumEl.textContent = '0' + (currentSlide + 1);
+            }
+
+            updateProgressFill();
+        }
+
+        const prevBtn = document.getElementById('carouselPrev');
+        const nextBtn = document.getElementById('carouselNext');
+        if (prevBtn) prevBtn.addEventListener('click', function() {
+            resetAutoPlay();
+            goToSlide(currentSlide - 1);
+        });
+        if (nextBtn) nextBtn.addEventListener('click', function() {
+            resetAutoPlay();
+            goToSlide(currentSlide + 1);
+        });
+
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                resetAutoPlay();
+                const idx = parseInt(dot.getAttribute('data-idx'), 10);
+                goToSlide(idx);
+            });
+        });
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayTimer = setInterval(function() {
+                goToSlide(currentSlide + 1);
+            }, autoPlayInterval);
+        }
+        function stopAutoPlay() {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        }
+        function resetAutoPlay() {
+            stopAutoPlay();
+            startAutoPlay();
+        }
+
+        if (wrap) {
+            wrap.addEventListener('mouseenter', stopAutoPlay);
+            wrap.addEventListener('mouseleave', startAutoPlay);
+        }
+        startAutoPlay();
+        updateProgressFill();
+
+        let isDragging = false;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let dragStartTime = 0;
+
+        function getPositionX(e) {
+            return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        }
+
+        function dragStart(e) {
+            stopAutoPlay();
+            isDragging = true;
+            startX = getPositionX(e);
+            dragStartTime = Date.now();
+            prevTranslate = -(currentSlide * 100);
+            if (wrap) wrap.classList.add('is-dragging');
+            if (track) track.style.transition = 'none';
+        }
+
+        function dragMove(e) {
+            if (!isDragging || !wrap || !track) return;
+            const currentX = getPositionX(e);
+            const diffX = currentX - startX;
+            const wrapWidth = wrap.offsetWidth || 1;
+            const percentMove = (diffX / wrapWidth) * 100;
+            currentTranslate = prevTranslate + percentMove;
+
+            if (currentTranslate > 0) {
+                currentTranslate = currentTranslate * 0.3;
+            } else if (currentTranslate < -((totalSlides - 1) * 100)) {
+                const over = currentTranslate + ((totalSlides - 1) * 100);
+                currentTranslate = -((totalSlides - 1) * 100) + (over * 0.3);
+            }
+
+            track.style.transform = 'translateX(' + currentTranslate + '%)';
+        }
+
+        function dragEnd(e) {
+            if (!isDragging || !wrap || !track) return;
+            isDragging = false;
+            if (wrap) wrap.classList.remove('is-dragging');
+            track.style.transition = 'transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)';
+
+            const endX = e.type.includes('mouse') ? e.pageX : (e.changedTouches ? e.changedTouches[0].clientX : startX);
+            const movedBy = endX - startX;
+            const elapsed = Date.now() - dragStartTime;
+
+            const velocity = Math.abs(movedBy) / (elapsed || 1);
+            if (movedBy < -50 || (movedBy < -20 && velocity > 0.4)) {
+                goToSlide(currentSlide + 1);
+            } else if (movedBy > 50 || (movedBy > 20 && velocity > 0.4)) {
+                goToSlide(currentSlide - 1);
+            } else {
+                goToSlide(currentSlide);
+            }
+            startAutoPlay();
+        }
+
+        if (wrap) {
+            wrap.addEventListener('mousedown', dragStart);
+            window.addEventListener('mousemove', dragMove);
+            window.addEventListener('mouseup', dragEnd);
+
+            wrap.addEventListener('touchstart', dragStart, { passive: true });
+            wrap.addEventListener('touchmove', dragMove, { passive: true });
+            wrap.addEventListener('touchend', dragEnd);
+            wrap.addEventListener('touchcancel', dragEnd);
+        }
+
+        const programData = {
+            reboisasi: {
+                category: 'Restorasi Hutan Endemik',
+                title: 'Program Reboisasi Hutan Kalimantan',
+                image: 'https://lh3.googleusercontent.com/d/134gkA4Px1Scwnpye1AOUgPWCA6f9IcRA',
+                desc: 'Inisiatif penanaman pohon seluas 500 hektar di zona bekas karhutla Kalimantan. Memprioritaskan pohon kayu keras endemik berakar dalam seperti Meranti Merah, Ulin, dan Tengkawang untuk mengembalikan fungsi hidrologis dan habitat satwa liar.',
+                specs: [
+                    { label: 'Spesies Unggulan', value: 'Ulin, Meranti, Gaharu' },
+                    { label: 'Mitra Lapangan', value: 'Aliansi Adat Dayak' },
+                    { label: 'Tingkat Keberhasilan', value: '92.4% Tumbuh Sehat' },
+                    { label: 'Metode Monitoring', value: 'Geotagging & Drone LiDAR' }
+                ]
+            },
+            cameratrap: {
+                category: 'Wildlife Vision',
+                title: 'Jaringan Camera Trap Inframerah Cerdas',
+                image: 'https://lh3.googleusercontent.com/d/14KbSXgcUmqf3qTnPZWwghK8dnYYF_VDn',
+                desc: 'Sebanyak 200 unit camera trap berkemampuan penglihatan malam dipasang pada koridor kanopi dan tanah. Citra diproses dengan model convolutional neural network (CNN) untuk identifikasi satwa tanpa perlu kontak fisik.',
+                specs: [
+                    { label: 'Resolusi Sensor', value: '24 MP & 4K IR Video' },
+                    { label: 'Daya Baterai', value: 'Solar Cell 180 Hari' },
+                    { label: 'Deteksi Satwa Kunci', value: 'Macan Dahan, Orangutan' },
+                    { label: 'Akurasi Model Modern', value: '96.8% Klasifikasi' }
+                ]
+            },
+            edukasi: {
+                category: 'Pemberdayaan Masyarakat',
+                title: 'Sekolah Alam & Ekonomi HHBK Lestari',
+                image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=900&h=600&fit=crop',
+                desc: 'Membimbing 15 desa penyangga kawasan hutan lindung untuk mandiri secara ekonomi tanpa membakar hutan. Pelatihan meliputi peternakan lebah madu tanpa sengat (Trigona/Kelulut), pengolahan rotan, dan agroforestri kopi bayangan.',
+                specs: [
+                    { label: 'Desa Terlibat', value: '15 Desa Penyangga' },
+                    { label: 'Komoditas Unggulan', value: 'Madu Kelulut & Anyaman' },
+                    { label: 'Peningkatan Omset', value: '+40% per KK/Tahun' },
+                    { label: 'Kelompok Anak Muda', value: 'Generasi Borneo Hijau' }
+                ]
+            },
+            gambut: {
+                category: 'Restorasi Lahan Gambut',
+                title: 'Program Pembasahan (Rewetting) Gambut',
+                image: 'https://lh3.googleusercontent.com/d/1jSxJLaf-xhUCvzzrh112web_EJi-4Jqv',
+                desc: 'Penyekatan saluran pembuangan air gambut menggunakan sekat kanal komposit kayu dan tanah untuk menaikkan muka air tanah hingga batas aman minimum 40 cm di bawah permukaan tanah.',
+                specs: [
+                    { label: 'Kanal Tersekat', value: '50 Sekat Permanen' },
+                    { label: 'Luas Kubah Gambut', value: '2,000 Hektar Dilindungi' },
+                    { label: 'Muka Air Rata-rata', value: '-22 cm (Sangat Lembab)' },
+                    { label: 'Penurunan Hotspot', value: '80% Selama Kemarau' }
+                ]
+            }
+        };
+
+        const modalOverlay = document.getElementById('programModal');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImage = document.getElementById('modalImage');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalSpecs = document.getElementById('modalSpecs');
+
+        window.openProgramModal = function(key) {
+            const data = programData[key];
+            if (!data || !modalOverlay) return;
+
+            modalCategory.textContent = data.category;
+            modalTitle.textContent = data.title;
+            modalImage.src = data.image;
+            modalImage.alt = data.title;
+            modalDesc.textContent = data.desc;
+
+            modalSpecs.innerHTML = '';
+            data.specs.forEach(function(spec) {
+                const item = document.createElement('div');
+                item.className = 'modal-spec-item';
+                item.innerHTML = '<div class="modal-spec-label">' + spec.label + '</div><div class="modal-spec-value">' + spec.value + '</div>';
+                modalSpecs.appendChild(item);
+            });
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        function closeProgramModal() {
+            if (modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProgramModal);
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) closeProgramModal();
+            });
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeProgramModal();
+        });
+
+        const canvas = document.getElementById('earthCanvas');
+        const heroSection = document.getElementById('heroEarth');
+        let renderer, scene, camera, earth, atmosphere, markerPivot, stars;
+        let animFrameId;
+        let isGlobeDragging = false;
+        let globeStartX = 0, globeStartY = 0;
+        let targetRotX = 0.1;
+        const clock = new THREE.Clock();
+
+        function initEarth() {
+            if (!canvas || !heroSection || typeof THREE === 'undefined') return;
+
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+
+            scene = new THREE.Scene();
+
+            camera = new THREE.PerspectiveCamera(45, heroSection.offsetWidth / heroSection.offsetHeight, 0.1, 1000);
+            camera.position.z = 3.2;
+
+            const starsGeo = new THREE.BufferGeometry();
+            const starsCount = 1400;
+            const starsPositions = new Float32Array(starsCount * 3);
+            for (let i = 0; i < starsCount; i++) {
+                starsPositions[i * 3] = (Math.random() - 0.5) * 110;
+                starsPositions[i * 3 + 1] = (Math.random() - 0.5) * 110;
+                starsPositions[i * 3 + 2] = (Math.random() - 0.5) * 110;
+            }
+            starsGeo.setAttribute('position', new THREE.BufferAttribute(starsPositions, 3));
+            const starsMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.12, sizeAttenuation: true, transparent: true, opacity: 0.75 });
+            stars = new THREE.Points(starsGeo, starsMat);
+            scene.add(stars);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+            scene.add(ambientLight);
+
+            const sunLight = new THREE.DirectionalLight(0xffffff, 1.25);
+            sunLight.position.set(5, 3, 5);
+            scene.add(sunLight);
+
+            const fillLight = new THREE.DirectionalLight(0x52b788, 0.35);
+            fillLight.position.set(-5, -2, -3);
+            scene.add(fillLight);
+
+            const textureLoader = new THREE.TextureLoader();
+            const earthTex = textureLoader.load('https://unpkg.com/three-globe@2.24.4/example/img/earth-blue-marble.jpg');
+            const bumpTex = textureLoader.load('https://unpkg.com/three-globe@2.24.4/example/img/earth-topology.png');
+
+            const earthGeo = new THREE.SphereGeometry(1, 64, 64);
+            const earthMat = new THREE.MeshPhongMaterial({
+                map: earthTex,
+                bumpMap: bumpTex,
+                bumpScale: 0.045,
+                specular: new THREE.Color(0x222222),
+                shininess: 16
+            });
+            earth = new THREE.Mesh(earthGeo, earthMat);
+            scene.add(earth);
+
+            const atmosGeo = new THREE.SphereGeometry(1.04, 64, 64);
+            const atmosMat = new THREE.MeshPhongMaterial({
+                color: 0x52b788,
+                transparent: true,
+                opacity: 0.09,
+                side: THREE.FrontSide
+            });
+            atmosphere = new THREE.Mesh(atmosGeo, atmosMat);
+            scene.add(atmosphere);
+
+            const outerGlowGeo = new THREE.SphereGeometry(1.08, 64, 64);
+            const outerGlowMat = new THREE.MeshBasicMaterial({
+                color: 0x40916c,
+                transparent: true,
+                opacity: 0.04,
+                side: THREE.BackSide
+            });
+            const outerGlow = new THREE.Mesh(outerGlowGeo, outerGlowMat);
+            scene.add(outerGlow);
+
+            const lat = 0;
+            const lon = 114;
+            const phi = (90 - lat) * (Math.PI / 180);
+            const theta = (lon + 180) * (Math.PI / 180);
+            const markerRadius = 1.02;
+            const mx = -(markerRadius * Math.sin(phi) * Math.cos(theta));
+            const my = markerRadius * Math.cos(phi);
+            const mz = markerRadius * Math.sin(phi) * Math.sin(theta);
+
+            markerPivot = new THREE.Group();
+            earth.add(markerPivot);
+
+            const ringGeo = new THREE.RingGeometry(0.028, 0.05, 32);
+            const ringMat = new THREE.MeshBasicMaterial({ color: 0xff4d36, transparent: true, opacity: 0.7, side: THREE.DoubleSide });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            ring.position.set(mx, my, mz);
+            ring.lookAt(new THREE.Vector3(0, 0, 0));
+            markerPivot.add(ring);
+
+            const dotGeo = new THREE.SphereGeometry(0.022, 16, 16);
+            const dotMat = new THREE.MeshBasicMaterial({ color: 0xff6644 });
+            const dot = new THREE.Mesh(dotGeo, dotMat);
+            dot.position.set(mx, my, mz);
+            markerPivot.add(dot);
+
+            const ring2Geo = new THREE.RingGeometry(0.052, 0.065, 32);
+            const ring2Mat = new THREE.MeshBasicMaterial({ color: 0xff5533, transparent: true, opacity: 0.3, side: THREE.DoubleSide });
+            const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+            ring2.position.set(mx, my, mz);
+            ring2.lookAt(new THREE.Vector3(0, 0, 0));
+            markerPivot.add(ring2);
+
+            positionEarth();
+            animateEarth();
+        }
+
+        function positionEarth() {
+            if (!earth || !atmosphere) return;
+            if (window.innerWidth > 900) {
+                earth.position.x = 0.82;
+                atmosphere.position.x = 0.82;
+            } else {
+                earth.position.x = 0;
+                atmosphere.position.x = 0;
+            }
+        }
+
+        function animateEarth() {
+            animFrameId = requestAnimationFrame(animateEarth);
+            const elapsed = clock.getElapsedTime();
+
+            earth.rotation.y += 0.0016;
+
+            earth.rotation.x += (targetRotX - earth.rotation.x) * 0.05;
+
+            atmosphere.rotation.y = earth.rotation.y;
+            atmosphere.rotation.x = earth.rotation.x;
+
+            const pulse = 0.6 + 0.4 * Math.sin(elapsed * 3.5);
+            if (markerPivot && markerPivot.children[0]) {
+                markerPivot.children[0].material.opacity = pulse * 0.75;
+                markerPivot.children[0].scale.setScalar(1 + 0.28 * Math.sin(elapsed * 3.5));
+            }
+            if (markerPivot && markerPivot.children[2]) {
+                markerPivot.children[2].material.opacity = (1 - pulse) * 0.45;
+                markerPivot.children[2].scale.setScalar(1 + 0.5 * Math.sin(elapsed * 2.2));
+            }
+
+            if (stars) {
+                stars.rotation.y += 0.00015;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        const canvasWrap = document.getElementById('earthCanvasWrap');
+        if (canvasWrap) {
+            canvasWrap.addEventListener('mousedown', function(e) {
+                isGlobeDragging = true;
+                globeStartX = e.clientX;
+                globeStartY = e.clientY;
+            });
+            window.addEventListener('mousemove', function(e) {
+                if (!isGlobeDragging || !earth) return;
+                const dx = e.clientX - globeStartX;
+                const dy = e.clientY - globeStartY;
+                earth.rotation.y += dx * 0.005;
+                targetRotX += dy * 0.003;
+                targetRotX = Math.max(-0.9, Math.min(0.9, targetRotX));
+                globeStartX = e.clientX;
+                globeStartY = e.clientY;
+            });
+            window.addEventListener('mouseup', function() { isGlobeDragging = false; });
+
+            canvasWrap.addEventListener('touchstart', function(e) {
+                isGlobeDragging = true;
+                globeStartX = e.touches[0].clientX;
+                globeStartY = e.touches[0].clientY;
+            }, { passive: true });
+            canvasWrap.addEventListener('touchmove', function(e) {
+                if (!isGlobeDragging || !earth) return;
+                const dx = e.touches[0].clientX - globeStartX;
+                const dy = e.touches[0].clientY - globeStartY;
+                earth.rotation.y += dx * 0.005;
+                targetRotX += dy * 0.003;
+                targetRotX = Math.max(-0.9, Math.min(0.9, targetRotX));
+                globeStartX = e.touches[0].clientX;
+                globeStartY = e.touches[0].clientY;
+            }, { passive: true });
+            canvasWrap.addEventListener('touchend', function() { isGlobeDragging = false; }, { passive: true });
+        }
+
+        function onResize() {
+            if (!renderer || !camera || !heroSection) return;
+            renderer.setSize(heroSection.offsetWidth, heroSection.offsetHeight);
+            camera.aspect = heroSection.offsetWidth / heroSection.offsetHeight;
+            camera.updateProjectionMatrix();
+            positionEarth();
+        }
+        window.addEventListener('resize', onResize);
+
+       initEarth();
+
+        window.addEventListener("pagehide", function () {
+          cancelAnimationFrame(animFrameId);
+        });
+
+        window.addEventListener("pageshow", function (e) {
+          if (e.persisted && renderer) {
+            animateEarth();
+          }
+        });
+    })();
+    </script>
+</body>
+</html>
